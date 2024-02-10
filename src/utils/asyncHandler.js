@@ -1,6 +1,7 @@
 // There are two Methods to Define Async Handler : 1 is Use Promise, 2 is Use Try Catch (we use 1st Method)
+// Here we have to return a callback function 
 const asyncHandler = (requestHandler) => {
-    (req, res, next) => {
+    return (req, res, next) => {
     Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err))
     }
 }
